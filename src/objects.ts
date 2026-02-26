@@ -8,6 +8,7 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
+<<<<<<< HEAD
     type: QuestionType,
 ): Question {
     let questionObject: Question = {
@@ -21,6 +22,11 @@ export function makeBlankQuestion(
         published: false,
     };
     return questionObject;
+=======
+    type: QuestionType
+): Question {
+    return {};
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -31,12 +37,16 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
+<<<<<<< HEAD
     let correctAnswer =
         answer.trim().toLowerCase() === question.expected.trim().toLowerCase() ?
             true
         :   false;
 
     return correctAnswer;
+=======
+    return false;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -46,11 +56,15 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
+<<<<<<< HEAD
     let potentialCorrect: boolean =
         question.type === "short_answer_question" ? true
         : question.options.includes(answer) ? true
         : false;
     return potentialCorrect;
+=======
+    return false;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -60,8 +74,12 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
+<<<<<<< HEAD
     let shortForm: string = question.id + ": " + question.name.slice(0, 10);
     return shortForm;
+=======
+    return "";
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -82,6 +100,7 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
+<<<<<<< HEAD
     let mark: string = "# " + question.name + "\n" + question.body;
     let optionsOrNone: string =
         question.type === "short_answer_question" ?
@@ -94,6 +113,9 @@ export function toMarkdown(question: Question): string {
             "\n- " +
             question.options[2];
     return optionsOrNone;
+=======
+    return "";
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -101,8 +123,12 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
+<<<<<<< HEAD
     let newQuestion: Question = { ...question, name: newName };
     return newQuestion;
+=======
+    return question;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -111,11 +137,15 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
+<<<<<<< HEAD
     let newVersion: Question = { ...question };
     newVersion.published ?
         (newVersion.published = false)
     :   (newVersion.published = true);
     return newVersion;
+=======
+    return question;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -125,11 +155,15 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
+<<<<<<< HEAD
     let newQuestion: Question = { ...oldQuestion };
     newQuestion.id = id;
     newQuestion.name = "Copy of " + oldQuestion.name;
     newQuestion.published = false;
     return newQuestion;
+=======
+    return oldQuestion;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -140,12 +174,16 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
+<<<<<<< HEAD
     let newQuest: Question = {
         ...question,
         options: [...question.options, newOption],
     };
 
     return newQuest;
+=======
+    return question;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -160,6 +198,7 @@ export function mergeQuestion(
     id: number,
     name: string,
     contentQuestion: Question,
+<<<<<<< HEAD
     { points }: { points: number },
 ): Question {
     let newQuestion: Question = { ...contentQuestion };
@@ -168,4 +207,9 @@ export function mergeQuestion(
     newQuestion.points = points;
     newQuestion.published = false;
     return newQuestion;
+=======
+    { points }: { points: number }
+): Question {
+    return contentQuestion;
+>>>>>>> upstream/task-nested
 }
