@@ -4,10 +4,10 @@ import "./App.css";
 //import image from './images/silly_cat.jpg';
 import { ChangeType } from "./components/ChangeType";
 import { RevealAnswer } from "./components/RevealAnswer";
-import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
+import { StartAttempt } from "./components/StartAttempt";
 
 function App(): React.JSX.Element {
     return (
@@ -20,11 +20,11 @@ function App(): React.JSX.Element {
             <hr />
             <RevealAnswer></RevealAnswer>
             <hr />
+            <ChangeType></ChangeType>
+            <hr />
             <StartAttempt></StartAttempt>
             <hr />
             <TwoDice></TwoDice>
-            <hr />
-            <ChangeType></ChangeType>
             <hr />
             <CycleHoliday></CycleHoliday>
         </div>
