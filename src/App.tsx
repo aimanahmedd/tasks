@@ -7,14 +7,11 @@ import { RevealAnswer } from "./components/RevealAnswer";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
-<<<<<<< HEAD
-import { StartAttempt } from "./components/StartAttempt";
-=======
 import { DoubleHalf } from "./bad-components/DoubleHalf";
 import { ColoredBox } from "./bad-components/ColoredBox";
 import { ShoveBox } from "./bad-components/ShoveBox";
 import { ChooseTeam } from "./bad-components/ChooseTeam";
->>>>>>> upstream/task-components
+import { StartAttempt } from "./components/StartAttempt";
 
 function App(): React.JSX.Element {
     return (
@@ -23,7 +20,7 @@ function App(): React.JSX.Element {
                 UD CISC275 with React Hooks and TypeScript by Aiman Ahmed!
             </header>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
+            {<DoubleHalf></DoubleHalf>}
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>

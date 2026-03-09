@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
-function ShoveBoxButton({
-    position,
-    setPosition,
-}: {
+/*
+The ShoveBox component provides a button that moves an adjacent box farther away, by
+ increasing the boxes left margin.
+
+Currently, part of the component’s returned body is commented out because it is broken 
+and crashes your application. Uncomment the component’s body in src/ShoveBox.tsx and 
+then fix the Component so that it works correctly.
+
+You must NOT add or remove components; you can only modify the existing components.*/
+
+interface moveBoxProps {
     position: number;
-    setPosition: (newPosition: number) => void;
-}) {
+}
+
+interface ShoveBoxButtonProps {
+    position: number;
+    setPosition: (value: number) => void;
+}
+
+function ShoveBoxButton({ position, setPosition }: ShoveBoxButtonProps) {
     return (
         <Button
             onClick={() => {
@@ -19,8 +32,7 @@ function ShoveBoxButton({
     );
 }
 
-function MoveableBox(): React.JSX.Element {
-    const [position, setPosition] = useState<number>(10);
+function MoveableBox({ position }: moveBoxProps): React.JSX.Element {
     return (
         <div
             data-testid="moveable-box"
@@ -38,19 +50,25 @@ function MoveableBox(): React.JSX.Element {
 }
 
 export function ShoveBox(): React.JSX.Element {
-    const box = MoveableBox();
+    const [position, setPosition] = useState<number>(10);
+
+    //const box = MoveableBox();
 
     return (
         <div>
             <h3>Shove Box</h3>
-            {/* <span>The box is at: {box.position}</span>
+            <span>The box is at: {position}</span>
             <div>
+                <MoveableBox position={position}></MoveableBox>
                 <ShoveBoxButton
+                    position={position}
+                    setPosition={setPosition}
+                ></ShoveBoxButton>
+                {/* <ShoveBoxButton
                     position={box.position}
                     setPosition={box.setPosition}
-                ></ShoveBoxButton>
-                {box}
-            </div> */}
+                ></ShoveBoxButton> */}
+            </div>
         </div>
     );
 }

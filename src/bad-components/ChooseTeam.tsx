@@ -1,5 +1,15 @@
 import React, { useState } from "react";
 import { Button, Row, Col } from "react-bootstrap";
+/*
+The ChooseTeam component provides a list of buttons representing people, and a list of people 
+representing a team. Clicking a button adds the given person to the team on the right
+, if they are not already there.
+
+Currently, the component is broken and partially out, because its click handlers are not coded 
+correctly to properly update state. Fix the click handler functions so that the component works
+ correctly. Hint: You will want to modify the signature and binding of one of the inner helper functions.
+
+You must not add or remove components; you can only modify the existing components.*/
 
 const PEOPLE = [
     "Alan Turing",
@@ -14,7 +24,10 @@ export function ChooseTeam(): React.JSX.Element {
     const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
     const [team, setTeam] = useState<string[]>([]);
 
-    function chooseMember() {
+    function chooseMember(newMember: string) {
+        let newMem =
+            !team.includes(newMember) ? [...team, newMember] : [...team];
+        setTeam(newMem);
         /*
         if (!team.includes(newMember)) {
             team.push(newMember);
@@ -23,6 +36,8 @@ export function ChooseTeam(): React.JSX.Element {
     }
 
     function clearTeam() {
+        setTeam([]);
+        setAllOptions([...allOptions]);
         /*
         team = [];
         */
@@ -36,7 +51,12 @@ export function ChooseTeam(): React.JSX.Element {
                     {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
-                            <Button onClick={chooseMember} size="sm">
+                            <Button
+                                onClick={() => {
+                                    chooseMember(option);
+                                }}
+                                size="sm"
+                            >
                                 {option}
                             </Button>
                         </div>
